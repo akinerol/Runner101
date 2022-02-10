@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public PlayerController Player;
+    public MeteorCreator Meteor;
 
 
     private void Start()
@@ -18,6 +19,9 @@ public class GameController : MonoBehaviour
     {
         Player.MovementCompletedLocal += OnMovementCompleted;               
         PlayerController.MovementCompleted += OnMovementCompleted;          //class tan erisim saglaniyor
+
+        Player.MidpointReachedLocal += OnMidpointReached;
+      
     }
 
     private void UnregisterEvents()
@@ -25,10 +29,18 @@ public class GameController : MonoBehaviour
         Player.MovementCompletedLocal -= OnMovementCompleted;
         PlayerController.MovementCompleted -= OnMovementCompleted;
 
+        Player.MidpointReachedLocal -= OnMidpointReached;
+      
+
     }
     private void OnMovementCompleted()
     {
         Debug.Log("movement completed gamecontroller");
+    }
+    private void OnMidpointReached()
+    {
+        Meteor.CreateMeteors();
+        Debug.Log("midpoint reached gamecontroller");
     }
 
 

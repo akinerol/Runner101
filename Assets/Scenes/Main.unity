@@ -682,9 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce676a4c1f61664fa5ced680eadc4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteor: []
-  _meteorPrefab: {fileID: 231002219192221779, guid: d57aefac43995c545a6f70fea06decc7, type: 3}
-  meteorCount: 5
   _runSpeed: 5
   _limitX: 5
   _limitZ: 50
@@ -774,6 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018527342}
   - component: {fileID: 2018527341}
+  - component: {fileID: 2018527343}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -794,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1989562903}
+  Meteor: {fileID: 2018527343}
 --- !u!4 &2018527342
 Transform:
   m_ObjectHideFlags: 0
@@ -808,3 +807,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018527343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018527340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b6d804b5ed43043adb08d0aa60fd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorPrefab: {fileID: 231002219192221779, guid: d57aefac43995c545a6f70fea06decc7, type: 3}

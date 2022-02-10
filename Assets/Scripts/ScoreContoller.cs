@@ -38,11 +38,11 @@ public class ScoreContoller : MonoBehaviour
         _star3Reached = false;
         Win.SetActive(false);
         Next.SetActive(false);
-    
+
         scoreCoroutine = StartCoroutine(ScoreCounter());
 
         PlayerController.MovementCompleted += OnMovementCompleted;
-}
+    }
 
     private void OnMovementCompleted()
     {

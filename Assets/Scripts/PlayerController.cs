@@ -10,11 +10,9 @@ public class PlayerController : MonoBehaviour
     public event Action MovementCompletedLocal;
 
 
-    public GameObject[] _meteor;
-    public GameObject _meteorPrefab;
+    public event Action MidpointReachedLocal; 
 
-    public int meteorCount = 5;
-   // public List<Transform> _meteor = new List<Transform>();
+
 
 
     [SerializeField] private float _runSpeed = 5;
@@ -68,9 +66,12 @@ public class PlayerController : MonoBehaviour
             {
                
                 transform.position = new Vector3(transform.position.x, transform.position.y, currentPosZ);
-                StartMeteor();
 
-             
+                
+                MidpointReachedLocal.Invoke();
+
+                _playerAnim.SetBool("Run", false);
+
                 yield break;
             }
 
@@ -82,29 +83,14 @@ public class PlayerController : MonoBehaviour
             }
 
            
-            Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);         //ywni bir fonksiyona atamadim??????????? currentPosX yuzunden
+            Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);         //yeni bir fonksiyona atamadim??????????? currentPosX yuzunden
             transform.position = currentPos;
 
             yield return null;
         }
     }
 
-    private void StartMeteor()
-    {
-        _playerAnim.SetBool("Run", false);
 
-
-        _meteor = new GameObject[meteorCount];
-        for (int i = 0; i < meteorCount; i++)
-        {
-            _meteor[i] = (GameObject)Instantiate(_meteorPrefab, new Vector3(i * 2.0F, 10, 25), Quaternion.identity);
-        }
-
-
-     //   MovementCompleted.Invoke(); 
-
-
-    }
 
     private void FinishRunning()
     {
