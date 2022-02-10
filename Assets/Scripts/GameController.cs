@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 {
     public PlayerController Player;
     public MeteorCreator Meteor;
+    public CameraController Camera;
+
 
 
     private void Start()
@@ -39,9 +41,10 @@ public class GameController : MonoBehaviour
     }
     private void OnMidpointReached()
     {
+        
         Meteor.CreateMeteors();
+
         Debug.Log("midpoint reached gamecontroller");
+
     }
-
-
 }

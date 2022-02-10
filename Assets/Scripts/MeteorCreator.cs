@@ -11,31 +11,29 @@ public class MeteorCreator : MonoBehaviour
     [SerializeField] private GameObject _meteorPrefab;
 
     private int _meteorCount = 5;
-
-    private void Start()
-    {
-        
-    }
+    private int _randomTime;
 
 
     public void CreateMeteors()
     {
-        StartCoroutine(StartMeteor());
+        StartCoroutine(SpawnMeteor());
 
     }
-    private IEnumerator StartMeteor()
+    private IEnumerator SpawnMeteor()
     {
+        
         yield return new WaitForSeconds(2);
 
         _meteors = new List<GameObject>();
 
         for (int i = 0; i < _meteorCount; i++)
         {
-            GameObject meteor = Instantiate(_meteorPrefab.gameObject, new Vector3(Random.Range(-5, 5), Random.Range(10, 15), Random.Range(25, 30)), Quaternion.identity);
+            GameObject meteor = Instantiate(_meteorPrefab.gameObject, new Vector3(Random.Range(-5, 5), Random.Range(8, 10), Random.Range(30, 35)), Quaternion.identity);
             _meteors.Add(meteor);
-        };
-        
 
+            _randomTime = Random.Range(0, 3);
+            yield return new WaitForSeconds(_randomTime); 
+        }
     }
 }
 

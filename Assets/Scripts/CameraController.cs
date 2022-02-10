@@ -8,14 +8,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float panSpeed = 20f;
 
 
-    void Update()
+    public void PanCamera()
     {
-        Vector3 camPos = cam.transform.position;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            camPos.z += panSpeed * Time.deltaTime;
-        }
+        Vector3 camPos = new Vector3(cam.transform.position.x, cam.transform.position.y, cam.transform.position.z + panSpeed * Time.deltaTime);        
 
         cam.transform.position = camPos;
     }

@@ -8,10 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action MovementCompleted;
     public event Action MovementCompletedLocal;
-
-
-    public event Action MidpointReachedLocal; 
-
+    public event Action MidpointReachedLocal;
 
 
 
@@ -46,8 +43,8 @@ public class PlayerController : MonoBehaviour
                 IsControllable = true;
                 _playerAnim.SetBool("Run", true);
             }
-            
-            if(IsControllable == false)
+
+            if (IsControllable == false)
             {
                 yield return null;
                 continue;
@@ -62,15 +59,17 @@ public class PlayerController : MonoBehaviour
             }
             float currentPosZ = transform.position.z;
 
-            if(currentPosZ >= _limitZ / 2)                                            //Player is at the halfway
+            if (currentPosZ >= _limitZ / 2)                                            //Player is at the halfway
             {
-               
+
                 transform.position = new Vector3(transform.position.x, transform.position.y, currentPosZ);
 
-                
+
                 MidpointReachedLocal.Invoke();
 
                 _playerAnim.SetBool("Run", false);
+    
+
 
                 yield break;
             }
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-           
+
             Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);         //yeni bir fonksiyona atamadim??????????? currentPosX yuzunden
             transform.position = currentPos;
 
@@ -99,12 +98,12 @@ public class PlayerController : MonoBehaviour
 
         IsControllable = false;
 
-        transform.DOLookAt(new Vector3(0, 0, 0), 0.5f).OnComplete(() => 
-        { 
+        transform.DOLookAt(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+        {
             _playerAnim.SetTrigger("Dance");
             MovementCompleted.Invoke(); //all events are called via Invoke();
-            MovementCompletedLocal.Invoke(); 
-        } );              //() => { }
+            MovementCompletedLocal.Invoke();
+        });              //() => { }
 
         //  yield return new WaitForSeconds(1);  only in coroutine
 
