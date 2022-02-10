@@ -9,6 +9,14 @@ public class PlayerController : MonoBehaviour
     public static event Action MovementCompleted;
     public event Action MovementCompletedLocal;
 
+
+    public GameObject[] _meteor;
+    public GameObject _meteorPrefab;
+
+    public int meteorCount = 5;
+   // public List<Transform> _meteor = new List<Transform>();
+
+
     [SerializeField] private float _runSpeed = 5;
     [SerializeField] private float _limitX = 5;
     [SerializeField] private float _limitZ = 20;
@@ -58,9 +66,11 @@ public class PlayerController : MonoBehaviour
 
             if(currentPosZ >= _limitZ / 2)                                            //Player is at the halfway
             {
-                StartMeteor();
+               
                 transform.position = new Vector3(transform.position.x, transform.position.y, currentPosZ);
+                StartMeteor();
 
+             
                 yield break;
             }
 
@@ -83,9 +93,16 @@ public class PlayerController : MonoBehaviour
     {
         _playerAnim.SetBool("Run", false);
 
-    
 
-        StartRunning();
+        _meteor = new GameObject[meteorCount];
+        for (int i = 0; i < meteorCount; i++)
+        {
+            _meteor[i] = (GameObject)Instantiate(_meteorPrefab, new Vector3(i * 2.0F, 10, 25), Quaternion.identity);
+        }
+
+
+     //   MovementCompleted.Invoke(); 
+
 
     }
 

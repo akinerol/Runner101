@@ -628,6 +628,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8dc59763ee0eed44b64a7c5a7759880, type: 3}
+--- !u!1 &1907976443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c8dc59763ee0eed44b64a7c5a7759880, type: 3}
+  m_PrefabInstance: {fileID: 1153968139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1907976444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907976443}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.441895, y: 4.5000005, z: 10}
+  m_Center: {x: 0.00000047683716, y: -2.2499998, z: 5}
 --- !u!1 &1989562901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ba870c7d0718c0d449ca1afaa08d0c2d, type: 3}
@@ -664,6 +682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce676a4c1f61664fa5ced680eadc4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meteor: []
+  _meteorPrefab: {fileID: 231002219192221779, guid: d57aefac43995c545a6f70fea06decc7, type: 3}
+  meteorCount: 5
   _runSpeed: 5
   _limitX: 5
   _limitZ: 50
