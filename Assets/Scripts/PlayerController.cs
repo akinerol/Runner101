@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Running()
     {
-        float newX = 0;
+        float currentPosX = 0;
 
 
         while (true)
@@ -51,31 +51,50 @@ public class PlayerController : MonoBehaviour
             {
                 float DeltaX = Input.GetAxis("Mouse X");
 
-                newX = transform.position.x + DeltaX * _xspeed * _sensitivity;
-                newX = Mathf.Clamp(newX, -_limitX, _limitX);
+                currentPosX = transform.position.x + DeltaX * _xspeed * _sensitivity;
+                currentPosX = Mathf.Clamp(currentPosX, -_limitX, _limitX);
+            }
+            float currentPosZ = transform.position.z;
+
+            if(currentPosZ >= _limitZ / 2)                                            //Player is at the halfway
+            {
+                StartMeteor();
+                transform.position = new Vector3(transform.position.x, transform.position.y, currentPosZ);
+
+                yield break;
             }
 
-            if (transform.position.z >= _limitZ)
+            if (currentPosZ >= _limitZ)
             {
                 FinishRunning();
                 yield break;
 
             }
 
-            Vector3 newPos = new Vector3(newX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);
-            transform.position = newPos;
+           
+            Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);         //ywni bir fonksiyona atamadim??????????? currentPosX yuzunden
+            transform.position = currentPos;
 
             yield return null;
         }
     }
+
+    private void StartMeteor()
+    {
+        _playerAnim.SetBool("Run", false);
+
+    
+
+        StartRunning();
+
+    }
+
     private void FinishRunning()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, _limitZ);
         _playerAnim.SetBool("Run", false);
 
         IsControllable = false;
-
-        //  transform.eulerAngles = new Vector3(0, 0, 0);
 
         transform.DOLookAt(new Vector3(0, 0, 0), 0.5f).OnComplete(() => 
         { 

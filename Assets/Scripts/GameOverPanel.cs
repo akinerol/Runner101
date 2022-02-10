@@ -19,7 +19,7 @@ public class GameOverPanel : MonoBehaviour
 
     private IEnumerator StartMovement()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         _scoreController.gameObject.SetActive(true);
     }
 }
