@@ -19,9 +19,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        Vector3 _meteoritePos = transform.position;
-        Instantiate(_meteoritePrefab.gameObject, _meteoritePos, Quaternion.identity);
-        
+
 
     }
 

@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
-    [SerializeField] private float panSpeed = 20f;
+    //  [SerializeField]  private CinemachineVirtualCamera _cam1;
+    //  [SerializeField]  private CinemachineVirtualCamera _cam2;
 
+    public GameObject _cam1;
+    public GameObject _cam2;
 
-    public void PanCamera()
+    public void SwitchCamera()
     {
-        Vector3 camPos = new Vector3(cam.transform.position.x, cam.transform.position.y, cam.transform.position.z + panSpeed * Time.deltaTime);        
-
-        cam.transform.position = camPos;
+        _cam1.SetActive(false);
+        _cam2.SetActive(true);
+        Debug.Log("Camera switched");
     }
+
 }

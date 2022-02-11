@@ -32,17 +32,18 @@ public class GameController : MonoBehaviour
         PlayerController.MovementCompleted -= OnMovementCompleted;
 
         Player.MidpointReachedLocal -= OnMidpointReached;
-      
-
     }
+
     private void OnMovementCompleted()
     {
         Debug.Log("movement completed gamecontroller");
     }
+
     private void OnMidpointReached()
     {
         
         Meteor.CreateMeteors();
+        Camera.SwitchCamera();
 
         Debug.Log("midpoint reached gamecontroller");
 
