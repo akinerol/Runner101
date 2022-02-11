@@ -24,7 +24,7 @@ public class Target : MonoBehaviour
             foreach (GameObject meteorite in _meteorites)
             {
                 meteorite.SetActive(true);
-                meteorite.GetComponent<Rigidbody>().AddExplosionForce(250, _explosionSource.position, 25);
+                meteorite.GetComponent<Rigidbody>().AddExplosionForce(300, _explosionSource.position, 25);
             }
 
         MeteorsExpodedLocal.Invoke();

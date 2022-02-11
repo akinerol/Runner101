@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsControllable;
 
+    public ParticleSystem Particle;
+
     public void Initialize()
     {
         IsControllable = false;
@@ -110,13 +112,13 @@ public class PlayerController : MonoBehaviour
         //  yield return new WaitForSeconds(1);  only in coroutine
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision collected)
     {
-        if (col.gameObject.tag == "Meteorite")
+        if (collected.gameObject.tag == "Meteorite")
         {
-            Destroy(col.gameObject);
+            Destroy(collected.gameObject);
             _score += 100;
-            
+            Instantiate(Particle, transform.position, transform.rotation);
         }
     }
 
