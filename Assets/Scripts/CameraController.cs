@@ -15,7 +15,9 @@ public class CameraController : MonoBehaviour
     {
         _cam1.SetActive(false);
         _cam2.SetActive(true);
-        Debug.Log("Camera switched");
+        Debug.Log("Camera zoomed in");
+
+
     }
 
 }

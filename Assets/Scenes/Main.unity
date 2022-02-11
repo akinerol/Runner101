@@ -595,8 +595,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 100
-  field of view: 100
+  far clip plane: 5000
+  field of view: 56
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -621,8 +621,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.013779335, y: 0, z: 0, w: 0.9999051}
-  m_LocalPosition: {x: -0.03, y: 2.19, z: -1.27}
+  m_LocalRotation: {x: 0.10063951, y: 0, z: 0, w: 0.994923}
+  m_LocalPosition: {x: -0.03, y: 3.677, z: -7.614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -963,6 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce676a4c1f61664fa5ced680eadc4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DidFinishMiniGame: 0
   _runSpeed: 5
   _limitX: 5
   _limitZ: 50
@@ -1076,6 +1077,7 @@ MonoBehaviour:
   Player: {fileID: 1989562903}
   Meteor: {fileID: 2018527343}
   Camera: {fileID: 2018527344}
+  Target: {fileID: 0}
 --- !u!4 &2018527342
 Transform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meteorPrefab: {fileID: 6476929614533536855, guid: fda8b834c734c6047ba9c760a8bb4496, type: 3}
-  _meteoritePrefab: {fileID: 2637792511910221052, guid: a141ef19a3cda28409c16bab1ebd9a70, type: 3}
 --- !u!114 &2018527344
 MonoBehaviour:
   m_ObjectHideFlags: 0
