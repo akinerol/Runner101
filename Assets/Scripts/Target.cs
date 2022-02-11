@@ -28,13 +28,14 @@ public class Target : MonoBehaviour
             {
             meteorite.SetActive(true);
 
-          //  meteorite.GetComponent<Rigidbody>().AddExplosionForce(5, ExpPos, 2, 0);
+                meteorite.GetComponent<Rigidbody>().AddExplosionForce(250, ExpPos, 25);
 
-           // Debug.Log("Meteors exploded");
+                Debug.Log("Meteor exploded");
+            
             }
 
         
         
 
-    }
+    }   
 }
