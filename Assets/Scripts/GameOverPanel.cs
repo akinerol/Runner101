@@ -12,14 +12,15 @@ public class GameOverPanel : MonoBehaviour
         PlayerController.MovementCompleted += OnMovementCompleted;
     }
 
-    private void OnMovementCompleted()
+    private void OnMovementCompleted(int score)
     {
-        StartCoroutine(StartGameOver());
+        StartCoroutine(StartGameOver(score));
     }
 
-    private IEnumerator StartGameOver()
+    private IEnumerator StartGameOver(int score)
     {
         yield return new WaitForSeconds(5);
+        _scoreController.target = score;
         _scoreController.gameObject.SetActive(true);
     }
 }

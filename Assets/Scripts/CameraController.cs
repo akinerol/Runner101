@@ -11,12 +11,22 @@ public class CameraController : MonoBehaviour
     public GameObject _cam1;
     public GameObject _cam2;
 
+    public bool ZoomIn;
+
+
     public void SwitchCamera()
     {
-        _cam1.SetActive(false);
-        _cam2.SetActive(true);
-        Debug.Log("Camera zoomed in");
-
+        if (!ZoomIn)
+        {
+            _cam1.SetActive(false);
+            _cam2.SetActive(true);
+            Debug.Log("Camera zoomed in");
+        }
+        else
+        {
+            _cam1.SetActive(true);
+            _cam2.SetActive(false);
+        }
 
     }
 

@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     public PlayerController Player;
     public MeteorCreator Meteor;
     public CameraController Camera;
-    public Target Target;
 
 
 
@@ -20,11 +19,10 @@ public class GameController : MonoBehaviour
 
     private void RegisterEvents()
     {
-        PlayerController.MovementCompleted += OnMovementCompleted;          //class tan erisim saglaniyor
 
         Player.MovementCompletedLocal += OnMovementCompleted;
         Player.MidpointReachedLocal += OnMidpointReached;
-        Meteor.AllMeteorsExploded += OnAllMeteorsExploded;
+        Meteor.AllMeteorsExploded += OnAllMeteorsExploded;                  //MeteorCreator dan gonderilir.
 
 
     }
@@ -32,8 +30,7 @@ public class GameController : MonoBehaviour
     private void UnregisterEvents()
     {
         Player.MovementCompletedLocal -= OnMovementCompleted;
-        PlayerController.MovementCompleted -= OnMovementCompleted;
-
+        Meteor.AllMeteorsExploded -= OnAllMeteorsExploded;
         Player.MidpointReachedLocal -= OnMidpointReached;
 
     }
@@ -56,6 +53,10 @@ public class GameController : MonoBehaviour
         Debug.Log("start collecting meteorites");
         Player.DidFinishMiniGame = true;
         Player.StartRunning();
+
+        Camera.ZoomIn = true;
+        Camera.SwitchCamera();
+
     }
 
 

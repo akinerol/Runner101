@@ -251,6 +251,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1159476457620823696}
     - target: {fileID: 1466441726461909037, guid: 0cf4188c8b7866446a559728ede6b874, type: 3}
+      propertyPath: target
+      value: 1950
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466441726461909037, guid: 0cf4188c8b7866446a559728ede6b874, type: 3}
       propertyPath: scoreBar
       value: 
       objectReference: {fileID: 6900471016721176151}

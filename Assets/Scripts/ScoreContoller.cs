@@ -40,22 +40,6 @@ public class ScoreContoller : MonoBehaviour
         Next.SetActive(false);
 
         scoreCoroutine = StartCoroutine(ScoreCounter());
-
-        PlayerController.MovementCompleted += OnMovementCompleted;
-    }
-
-    private void OnMovementCompleted()
-    {
-        Debug.Log("movement completed");
-    }
-
-    void Update()
-    {
-        /* if (Input.GetKeyUp(KeyCode.KeypadMinus))          //stops the coroutine by minus key; this is additional feature;
-         {
-             StopCoroutine(scoreCoroutine);
-         }
-        */
     }
 
 

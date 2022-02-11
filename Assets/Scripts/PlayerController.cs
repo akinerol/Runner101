@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static event Action MovementCompleted;
+    public static event Action<int> MovementCompleted;
     public event Action MovementCompletedLocal;
     public event Action MidpointReachedLocal;
     public bool DidFinishMiniGame;                      //Meteor Explode game
@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _limitX = 5;
     [SerializeField] private float _limitZ = 20;
     [SerializeField] private float _xspeed = 0.05f;
+    [SerializeField] private int _score = 0;
+
 
     [SerializeField] private float _sensitivity = 5f;
     [SerializeField] private Animator _playerAnim;
@@ -58,7 +60,9 @@ public class PlayerController : MonoBehaviour
                 currentPosX = transform.position.x + DeltaX * _xspeed * _sensitivity;
                 currentPosX = Mathf.Clamp(currentPosX, -_limitX, _limitX);
             }
+
             float currentPosZ = transform.position.z;
+
 
             if (currentPosZ >= _limitZ / 2 && !DidFinishMiniGame)                                            //Player is at the halfway
             {
@@ -100,9 +104,21 @@ public class PlayerController : MonoBehaviour
         transform.DOLookAt(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
         {
             _playerAnim.SetTrigger("Dance");
-            MovementCompleted.Invoke(); //all events are called via Invoke();
+            MovementCompleted.Invoke(_score); //all events are called via Invoke();
             MovementCompletedLocal.Invoke();
         });              //() => { }
         //  yield return new WaitForSeconds(1);  only in coroutine
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Meteorite")
+        {
+            Destroy(col.gameObject);
+            _score += 100;
+            
+        }
+    }
+
+
 }
