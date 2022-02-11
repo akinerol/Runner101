@@ -367,8 +367,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1673121, y: 7.7331076, z: 28.883686}
-  m_Center: {x: 2.4387233, y: 3.3665538, z: 15.977613}
+  m_Size: {x: 1.1673121, y: 13.05576, z: 28.883686}
+  m_Center: {x: 2.4387233, y: 6.02788, z: 15.977613}
 --- !u!4 &611491686
 Transform:
   m_ObjectHideFlags: 0
@@ -595,8 +595,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 56
+  far clip plane: 100
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -621,8 +621,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.10063951, y: 0, z: 0, w: 0.994923}
-  m_LocalPosition: {x: -0.03, y: 3.677, z: -7.614}
+  m_LocalRotation: {x: -0.013779335, y: 0, z: 0, w: 0.9999051}
+  m_LocalPosition: {x: -0.03, y: 2.19, z: -1.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -799,8 +799,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1751928, y: 8.041763, z: 28.709547}
-  m_Center: {x: 2.4426637, y: 3.5208817, z: 16.064682}
+  m_Size: {x: 1.1751928, y: 15.0312605, z: 28.709549}
+  m_Center: {x: 2.4426637, y: 7.0156302, z: 16.064682}
 --- !u!4 &1582789120
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1054,6 @@ GameObject:
   - component: {fileID: 2018527341}
   - component: {fileID: 2018527343}
   - component: {fileID: 2018527344}
-  - component: {fileID: 2018527346}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1103,7 +1102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b6d804b5ed43043adb08d0aa60fd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorPrefab: {fileID: 6777900514696019224, guid: 57e52e35a1c49474293d7048ad89d253, type: 3}
+  _meteorPrefab: {fileID: 6476929614533536855, guid: fda8b834c734c6047ba9c760a8bb4496, type: 3}
+  _meteoritePrefab: {fileID: 2637792511910221052, guid: a141ef19a3cda28409c16bab1ebd9a70, type: 3}
 --- !u!114 &2018527344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,16 +1118,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam1: {fileID: 2003008953}
   _cam2: {fileID: 947413655}
---- !u!114 &2018527346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018527340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497de33d0e3c1d14e9cf08b8aa328253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meteoritePrefab: {fileID: 2637792511910221052, guid: a141ef19a3cda28409c16bab1ebd9a70, type: 3}

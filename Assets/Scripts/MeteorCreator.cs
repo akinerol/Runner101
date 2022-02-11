@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MeteorCreator : MonoBehaviour
 {
-    // public static event Action MeteorDestroyed;
 
     private List<GameObject> _meteors;
     [SerializeField] private GameObject _meteorPrefab;
@@ -17,11 +16,11 @@ public class MeteorCreator : MonoBehaviour
     {
         Debug.Log("meteors are created");
         StartCoroutine(SpawnMeteor());
-       
+
     }
     private IEnumerator SpawnMeteor()
     {
-        
+
         yield return new WaitForSeconds(2);
 
         _meteors = new List<GameObject>();
@@ -32,7 +31,7 @@ public class MeteorCreator : MonoBehaviour
             _meteors.Add(meteor);
 
             _randomTime = Random.Range(0, 3);
-            yield return new WaitForSeconds(_randomTime); 
+            yield return new WaitForSeconds(_randomTime);
         }
     }
 }

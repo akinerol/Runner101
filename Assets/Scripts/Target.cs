@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private List<GameObject> _meteorites;                  //for meteorites
+    [SerializeField] private List<GameObject> _meteorites;
     [SerializeField] private GameObject _meteoritePrefab;
 
 
-    private Rigidbody _targetRb;
+
     void Start()
     {
-        _targetRb = GetComponent<Rigidbody>();
-        
+
     }
 
-  
+   
+
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        MeshRenderer MeshComponent = gameObject.GetComponent<MeshRenderer>();
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
 
+        Vector3 ExpPos = this.transform.position;
+      
+            foreach (GameObject meteorite in _meteorites)
+            {
+            meteorite.SetActive(true);
+
+          //  meteorite.GetComponent<Rigidbody>().AddExplosionForce(5, ExpPos, 2, 0);
+
+           // Debug.Log("Meteors exploded");
+            }
+
+        
+        
 
     }
-
-
 }
