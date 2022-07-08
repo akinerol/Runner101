@@ -968,9 +968,11 @@ MonoBehaviour:
   _limitX: 5
   _limitZ: 50
   _xspeed: 0.05
+  _score: 0
   _sensitivity: 5
   _playerAnim: {fileID: 1989562902}
   IsControllable: 0
+  Particle: {fileID: 8113139795134709622, guid: 292f26d7ba2b3ea42be7771b6fe66d4f, type: 3}
 --- !u!4 &1989562905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba870c7d0718c0d449ca1afaa08d0c2d, type: 3}
@@ -1077,7 +1079,6 @@ MonoBehaviour:
   Player: {fileID: 1989562903}
   Meteor: {fileID: 2018527343}
   Camera: {fileID: 2018527344}
-  Target: {fileID: 0}
 --- !u!4 &2018527342
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,3 +1120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam1: {fileID: 2003008953}
   _cam2: {fileID: 947413655}
+  ZoomIn: 0

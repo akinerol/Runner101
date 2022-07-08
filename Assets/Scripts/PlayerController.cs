@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);         //yeni bir fonksiyona atamadim??????????? currentPosX yuzunden
+            Vector3 currentPos = new Vector3(currentPosX, transform.position.y, transform.position.z + _runSpeed * Time.deltaTime);        
             transform.position = currentPos;
 
             yield return null;
